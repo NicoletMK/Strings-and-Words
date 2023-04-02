@@ -13,4 +13,4 @@ Feel free to customize the input string and separators as needed
 
 #All kinds of tests passed
 
-![Test Result](Test Result.png)
+![Test Result](main/Test Result.png)
