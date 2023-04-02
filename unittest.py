@@ -14,4 +14,7 @@ def test_word_statistics():
     # Empty ducument
     assert word_statistics(" ") == {"word_count":{ }, "line_count": 1, "char_count": 0}
 
+# If no test failed
+print("All tests passed! Congrats!!")
+
 test_word_statistics()
