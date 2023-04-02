@@ -12,3 +12,4 @@ Run the function with document through Python3 run.py
 Feel free to customize the input string and separators as needed
 
 All kinds of tests passed
+Test Result.png
