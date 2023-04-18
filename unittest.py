@@ -14,7 +14,51 @@ def test_word_statistics():
     # Empty ducument
     assert word_statistics(" ") == {"word_count":{ }, "line_count": 1, "char_count": 0}
 
+
+def test_replace(self):
+        # Replacement
+        document = "The quick\t brown fox\njumps over the\nlazy\t dog."
+        result = word_statistics(document, pattern_word='dog', replacement_word='fox')
+        self.assertEqual(result['word_count'], {'the': 2, 'quick': 1, 'brown': 1, 'fox': 2, 'jumps': 1, 'over': 1, 'lazy': 1})
+        self.assertEqual(result['line_count'], 3)
+        self.assertEqual(result['char_count'], 36)
+        
+        # Replacement with \n combination
+        document = "The quick\t brown fox\njumps over the\nlazy\t dog."
+        result = word_statistics(document, pattern_word='fox', replacement_word='dog')
+        self.assertEqual(result['word_count'], {'the': 2, 'quick': 1, 'brown': 1, 'dog': 2, 'jumps': 1, 'over': 1, 'lazy': 1})
+        self.assertEqual(result['line_count'], 3)
+        self.assertEqual(result['char_count'], 36)
+     
+        # Replacement with number combination
+        document = "The 1st quick\t brown fox\njumps over the\nlazy\t dog."
+        result = word_statistics(document, pattern_word='1st', replacement_word='first')
+        self.assertEqual(result['word_count'], {'the': 2, 'first': 1, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1})
+        self.assertEqual(result['line_count'], 3)
+        self.assertEqual(result['char_count'], 41)
+
+        # Replacement with spaces
+        document = "  fox  &    dog"
+        result = word_statistics(document, pattern_word='fox', replacement_word='dog')
+        self.assertEqual(result['word_count'], {'dog': 2})
+        self.assertEqual(result['line_count'], 1)
+        self.assertEqual(result['char_count'], 7)
+
+        # Replacement with numbers
+        document = "123\n456\t789\n"
+        result = word_statistics(document, pattern_word='123', replacement_word='321')
+        self.assertEqual(result['word_count'], {'321': 1, '456': 1, '789': 1})
+        self.assertEqual(result['line_count'], 2)
+        self.assertEqual(result['char_count'], 9)
+
+        # Replacement when empty
+        document = " "
+        result = word_statistics(document, pattern_word='fox', replacement_word='dog')
+        self.assertEqual(result['word_count'], {})
+        self.assertEqual(result['line_count'], 1)
+        self.assertEqual(result['char_count'], 0)
+
+
 # If no test failed
 print("All tests passed! Congrats!!")
 
-test_word_statistics()
