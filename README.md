@@ -21,4 +21,4 @@ Feel free to customize the input string and separators as needed
 
 All kinds of tests passed
 
-![Test Result]([Test Result.png](https://github.com/NicoletMK/Strings-and-Words/blob/a5f4e2f780b50dc5ac44c32b7c5b74ecb1464ef6/Test%20Result.png))
+![Test Result.png](https://github.com/NicoletMK/Strings-and-Words/blob/a5f4e2f780b50dc5ac44c32b7c5b74ecb1464ef6/Test%20Result.png)
